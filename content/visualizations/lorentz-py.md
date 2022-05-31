@@ -35,7 +35,7 @@ However, since $T$  is defined to act on our basis vectors, it is a matrix that 
 With all that, keep in mind that $\Lambda$  takes the components of a 4-vector in $S$  basis and expresses it in another basis $S^\prime$  moving with velocity $v$  with respect to $S$, and try to answer this question: What is the basis in which $\Lambda$ must be expressed? $S$ or $S^\prime$? Since $\Lambda$ takes vectors written in $S$ to $S^\prime$, it must take the $S^\prime$ basis to $S$ basis. Without going into the actual physics of the derivation, the final matrix $\Lambda$ is given as follows -
 
 $$
-    \left[\begin{matrix} t^\prime \\ x^\prime \end{matrix} \right] = \gamma_v \left[ \begin{matrix} 1 & -v/c^2 \\ -v/c^2 & 1 \end{matrix} \right]\left[ \begin{matrix} x \\ t \end{matrix} \right]; \ \gamma_v = \frac{1}{\sqrt{1 - (v/c)^2}}
+    \left[\begin{matrix} t^\prime \\ x^\prime \end{matrix} \right] = \gamma_v \left[ \begin{matrix} 1 & -v \\ -v/c^2 & 1 \end{matrix} \right]\left[ \begin{matrix} x \\ t \end{matrix} \right]; \ \gamma_v = \frac{1}{\sqrt{1 - (v/c)^2}}
 $$
 
 ## Coding the Transformation
