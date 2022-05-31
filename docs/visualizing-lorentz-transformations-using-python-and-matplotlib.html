@@ -1,73 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="Pelican" />
-        <title>Visualizing Lorentz Transformations using Python and matplotlib</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <meta name="description" content="Test body" />
-</head>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+	<head>
+		<link href="http://gmpg.org/xfn/11" rel="profile">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="./">CocoaBlog</a></h1>
-                <nav><ul>
-                    <li><a href="./pages/about-me.html">About me</a></li>
-                    <li class="active"><a href="./category/visualizations.html">Visualizations</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="./visualizing-lorentz-transformations-using-python-and-matplotlib.html" rel="bookmark"
-           title="Permalink to Visualizing Lorentz Transformations using Python and matplotlib">Visualizing Lorentz Transformations using Python and matplotlib</a></h1>
-    </header>
+		<!-- Metadata -->
+	<meta name="description" content="">
+	<meta property="og:description" content="">
+	<meta property="og:title" content="Visualizing Lorentz Transformations using Python and matplotlib" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="./visualizing-lorentz-transformations-using-python-and-matplotlib.html" />
+		<meta property="og:image" content="./images/profile.png" />
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-06-01T13:00:00+05:30">
-                Published: Wed 01 June 2022
-        </abbr>
+		<!-- Enable responsiveness on mobile devices-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/cocoa.html">Cocoa</a>
-        </address>
-<p>In <a href="./category/visualizations.html">Visualizations</a>.</p>
-<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/math.html">math</a> <a href="./tag/physics.html">physics</a> <a href="./tag/visualization.html">visualization</a> <a href="./tag/matplotlib.html">matplotlib</a> </p>
-</footer><!-- /.post-info -->      <p>Test body</p>
-    </div><!-- /.entry-content -->
+		<title>CocoaBlog</title>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://getpelican.com/">Pelican</a></li>
-                            <li><a href="https://www.python.org/">Python.org</a></li>
-                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                            <li><a href="">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+		<!-- CSS -->
+		<link href="//fonts.googleapis.com/" rel="dns-prefetch">
+		<link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Abril+Fatface|PT+Sans:400,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet">
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+		<link rel="stylesheet" href="./theme/css/poole.css" />
+		<link rel="stylesheet" href="./theme/css/hyde.css" />
+		<link rel="stylesheet" href="./theme/css/syntax.css" />
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" crossorigin="anonymous">
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+		<!-- Feeds -->
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+		<!-- Analytics -->
+	</head>
 
-</body>
+	<body class="theme-base-0d">
+<div class="sidebar">
+	<div class="container sidebar-sticky">
+		<div class="sidebar-about">
+
+			<h1>
+				<a href="/">
+					<img class="profile-picture" src="./images/profile.png">
+					CocoaBlog
+				</a>
+			</h1>
+			<p class="lead"></p>
+			<p class="lead"> </p>
+			<p></p>
+		</div>
+			<ul class="sidebar-nav">
+					<li><a href="./pages/about-me.html">About me</a></li>
+			</ul>
+		<nav class="sidebar-social">
+			<a class="sidebar-social-item" href="/">
+				<i class="fa fa-rss"></i>
+			</a>
+		</nav>
+	</div>
+</div>		<div class="content container">
+<div class="post">
+	<h1 class="post-title">Visualizing Lorentz Transformations using Python and matplotlib</h1>
+	<span class="post-date">Wed 01 June 2022</span>
+	<p>The Lorentz transformation is an essential and introductory part of any introductory course on special relativity. It is the function that allows us to take a 4-vector in one basis, usually denoted by an <span class="math">\(S\)</span>, and transform it into another basis, <span class="math">\(S^\prime\)</span> , moving at some constant velocity <span class="math">\(v\)</span> with respect to <span class="math">\(S\)</span>. If you're at all familiar with the idea of a change of basis, you know that any relationship between two sets of basis can be expressed as a linear map. The Lorentz transform is no different, and is usually expressed with a capital lambda, <span class="math">\(\Lambda\)</span></p>
+<div class="math">$$
+    \vec{x_{S^\prime}} = \Lambda(\vec x_S)
+$$</div>
+<p>Since <span class="math">\(\vec{x} \in \mathbb{R}^4\)</span>, <span class="math">\(\Lambda\)</span> can be expressed as a <span class="math">\(4 \times 4\)</span> matrix. However we must be careful here, otherwise we risk running into a lot of confusion when we try to tell a computer how to animate this transformation for us. When we write <span class="math">\(\Lambda\)</span> as a matrix, <em>there is an implicit choice of basis we use</em>. In this article, we will try to figure out what <span class="math">\(\Lambda\)</span> ought to be in a 2 dimensional case (i.e, only <span class="math">\((t,x)\)</span>) and then we will tell Python to animate it for us.</p>
+<h2><span class="math">\(\Lambda\)</span> as a Matrix</h2>
+<p>We know that <span class="math">\(\Lambda\)</span> is an object that takes in a vector and gives us another vector. Objects of this kind are normally rank <span class="math">\((1,1)\)</span> tensors. As a refresher, a rank <span class="math">\((n,m)\)</span> tensor is a linear map that takes in <span class="math">\(n\)</span> vectors and <span class="math">\(m\)</span> covectors (elements of the dual space), and maps all those to some real number (or anything in the corresponding field). If you need a deeper understanding, I would highly recommend you check out Xylyxylyx's excellent video series titled "What is a Tensor?", specifically the <a href="http://www2.physics.umd.edu/~yakovenk/teaching/Lorentz.pdf">one about dual spaces</a>, and if you prefer to read rather than watch, they also have a <a href="http://www2.physics.umd.edu/~yakovenk/teaching/Lorentz.pdf">Patreon</a>, where you get their book with the same content for free! (Go support them! They do awesome work!). Coming back to the Lorentz Transform, I will assume you are convinced that this must be a linear mapping, (and if not, check out <a href="http://www2.physics.umd.edu/~yakovenk/teaching/Lorentz.pdf">this</a> paper), meaning we can write it as follows</p>
+<div class="math">$$
+    \left[\begin{matrix} t^\prime \\ x^\prime \end{matrix}\right] = \left[\begin{matrix} A &amp; B \\ C &amp; D \end{matrix}\right]\left[\begin{matrix} x \\ t\end{matrix}\right]
+$$</div>
+<p>But now the question arises, in which basis is the matrix <span class="math">\(\Lambda\)</span> written? We want <span class="math">\(\Lambda\)</span> to take in vectors from the <span class="math">\(S\)</span> basis, and output what this vector's components should be in the <span class="math">\(S^\prime\)</span> basis. Remember, the vector iteself is invarient. It is a physical quantity that does not change regardless of what basis you use. So, how I like to think of a change-of-basis matrix (which I learned from 3blue1brown's excellent Essence of Linear Algebra series) is that it takes in my misconception of a vector and transforms it to what the vector actually is. An example would be illustrative at this point. Consider the vector <span class="math">\(\vec v =(1,1)^\intercal\)</span> (the transpose is there to indicate that this is a vector and not a point) written in the usual euclidian basis <span class="math">\(\hat i\)</span> and <span class="math">\(\hat j\)</span>. To be in this basis means that for us, the components <span class="math">\((1,0)^\intercal\)</span> and <span class="math">\((0,1)^\intercal\)</span> are defined to be <span class="math">\(\hat{i}\)</span> and <span class="math">\(\hat{j}\)</span>. However, if somebody else uses a basis where their <span class="math">\(e^1=(1,0)^\intercal\)</span> and e^2=<span class="math">\((0,1)^\intercal\)</span> correspond to our <span class="math">\((1,1)^\intercal\)</span> and <span class="math">\((−1,1)^\intercal\)</span>, then we need some way to convert our expression of the vector <span class="math">\(\vec{v}\)</span> into theirs.</p>
+<p><img alt="Change of Basis" src="./visualizations/images/lorentz_changeofbasis.png"></p>
+<p>Visually we know that the vector we call <span class="math">\((1,1)^\intercal\)</span> for us is <span class="math">\((1,0)^\intercal\)</span> for them. So whatever transformation we come up with must map <span class="math">\((1,1)\)</span> to <span class="math">\((1,0)\)</span>. Specifically, we want to map <span class="math">\(\hat i\)</span> to <span class="math">\(\hat{e}_1\)</span>, and <span class="math">\(\hat j\)</span> to <span class="math">\(\hat e_2\)</span>. So our transformation matrix <span class="math">\(T\)</span> must satisfy <span class="math">\(T(\hat i) = \hat e_1\)</span> and <span class="math">\(T(\hat j) = \hat e_2\)</span>, and since <span class="math">\(T\)</span> is linear, this is all the information we need to completely specify <span class="math">\(T\)</span>!</p>
+<div class="math">$$
+    T = \left[ \begin{matrix} 1 &amp; -1 \\ 1 &amp; 1 \end{matrix} \right]
+$$</div>
+<p>However, since <span class="math">\(T\)</span>  is defined to act on our basis vectors, it is a matrix that moves our basis vectors to the new basis vectors. But consider this: if you are measuring something and it comes out to be 10 cm, and you want to write it in meters, then your unit (1 cm) is <em>multiplied</em> by 100 (since 100 cm = 1 m), but the length of the object has not changed, so the measurement must be <em>divided</em> by 100 so that your measurement is still unchanged. A more helpful way to write this would be <span class="math">\(10 \times 1\)</span> cm. Here, consider <span class="math">\(1\)</span> cm as our basis, and 10 to be the component of a vector, i.e, something that scales our basis. If we change centimeters to meters, then we must do the inverse to the component so that the underlying vector we are describing stays the same. That is to say, the basis is co-varient with our transformation (changes as the transformation does), however the component is co-varient with the inverse of the transformation, or an easier way to say that is that our component is contra-varient with our transformation. The same idea stands with <span class="math">\(T\)</span>. The basis vectors are co-varient with <span class="math">\(T\)</span>, however any vector expressed as a linear combination of these basis is contra-varient with <span class="math">\(T\)</span>, which means that <span class="math">\(T\)</span> as is actually takes components of vectors expressed in the <span class="math">\(\{\hat e_1, \hat e_2\}\)</span> basis and expresses them in the <span class="math">\(\{\hat i, \hat j\}\)</span> basis.</p>
+<p>With all that, keep in mind that <span class="math">\(\Lambda\)</span>  takes the components of a 4-vector in <span class="math">\(S\)</span>  basis and expresses it in another basis <span class="math">\(S^\prime\)</span>  moving with velocity <span class="math">\(v\)</span>  with respect to <span class="math">\(S\)</span>, and try to answer this question: What is the basis in which <span class="math">\(\Lambda\)</span> must be expressed? <span class="math">\(S\)</span> or <span class="math">\(S^\prime\)</span>? Since <span class="math">\(\Lambda\)</span> takes vectors written in <span class="math">\(S\)</span> to <span class="math">\(S^\prime\)</span>, it must take the <span class="math">\(S^\prime\)</span> basis to <span class="math">\(S\)</span> basis. Without going into the actual physics of the derivation, the final matrix <span class="math">\(\Lambda\)</span> is given as follows -</p>
+<div class="math">$$
+    \left[\begin{matrix} t^\prime \\ x^\prime \end{matrix} \right] = \gamma_v \left[ \begin{matrix} 1 &amp; -v/c^2 \\ -v/c^2 &amp; 1 \end{matrix} \right]\left[ \begin{matrix} x \\ t \end{matrix} \right]; \ \gamma_v = \frac{1}{\sqrt{1 - (v/c)^2}}
+$$</div>
+<h2>Coding the Transformation</h2>
+<p>Now that we understand what <span class="math">\(\Lambda\)</span> is telling us, we are ready to actually code it. First, we import the required libraries</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.collections</span> <span class="kn">import</span> <span class="n">LineCollection</span>
+<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
+
+<p>I will also set some plot parameters so that it looks nice like 3blue1brown's animations. It's just nice to look at and easy on the eyes. And we also use a function <code>get_arg</code> to get arguments directly from the command line. Using this function, we can define the constants that are needed for this animation.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fprops</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;DejaVu Serif&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;color&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">get_arg</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">argv</span><span class="p">[</span><span class="n">argv</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Constants to configure the plot</span>
+<span class="n">xlim</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ylim</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">target_vel</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_arg</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">))</span> <span class="c1"># Fraction of c</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_arg</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">))</span>   <span class="c1"># Number of frames</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">get_arg</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">)</span>          <span class="c1"># Output filename</span>
+<span class="n">framerate</span> <span class="o">=</span> <span class="mi">60</span>                    <span class="c1"># FPS</span>
+</code></pre></div>
+
+<p>Next, we need to draw a grid that we will move. Each line in our grid is defined to be drawn from a point <span class="math">\((x_0,y_0)\)</span> to <span class="math">\((x_1, y_1)\)</span>. Each line is a list of 2 points and the grid is a list of these pair of points. We also want to color all of them, and highlight the <span class="math">\(x\)</span> and <span class="math">\(y\)</span> axis, which are elements in our grid of the form <code>y_axis = [(0,-ylim), (0, ylim)]</code> and <code>x_axis = [(-xlim, 0), (xlim, 0)]</code>, and we set the color for those</p>
+<div class="highlight"><pre><span></span><code><span class="n">grid</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[(</span><span class="o">-</span><span class="n">xlim</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">xlim</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">ylim</span><span class="p">,</span> <span class="n">ylim</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">]</span> \
+    <span class="o">+</span> <span class="p">[</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">ylim</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">xlim</span><span class="p">,</span> <span class="n">xlim</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.7</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span> <span class="p">]</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">index</span><span class="p">(</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">ylim</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ylim</span><span class="p">)]</span> <span class="p">)</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">index</span><span class="p">(</span> <span class="p">[(</span><span class="o">-</span><span class="n">xlim</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">xlim</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="p">)</span>
+<span class="n">colors</span><span class="p">[</span><span class="n">x_axis</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.68</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">colors</span><span class="p">[</span><span class="n">y_axis</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.68</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+</code></pre></div>
+
+<p>We need to now define the Lorentz function acting on a point in our space. Doing so is fairly simple</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Main functions for plotting and animation</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vel</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">vel</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">c</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># Gamma function</span>
+
+<span class="k">def</span> <span class="nf">lorentz</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">vel</span><span class="p">):</span>
+    <span class="n">L_vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>        <span class="n">vel</span><span class="p">],</span>
+                    <span class="p">[</span><span class="n">vel</span> <span class="o">/</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">])</span>
+
+    <span class="n">point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">(</span><span class="n">vel</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">L_vel</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+</code></pre></div>
+
+<p>Notice that the velocity will be a fraction of the speed of light since we've set <span class="math">\(c=1\)</span> in line 2 above. I will also add a set of vectors along a hyperbola in the animation so that we can see that these vectors are just moved along the hyperbola and not scaled or stretched.</p>
+<div class="highlight"><pre><span></span><code><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">vectorlist</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">theta</span> <span class="p">]</span>
+</code></pre></div>
+
+<p>Now we are ready to define our update function. This function will be passed to matplotlib's <code>FuncAnimation</code> API and it will update our animation. This essentially defines, given your current frame (state), how do we go to the next frame. This function will take in all the objects we want to animate (in this case, I am passing in our grid, the <code>LineCollection</code> object, a dictionary that maps a point to a vector (quiver) object <code>(x, y) : quiver(0, 0, x, y)</code>, and a label that shows the current velocity). </p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">linecol</span><span class="p">,</span> <span class="n">quivers</span> <span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+
+    <span class="n">current_vel</span> <span class="o">=</span> <span class="p">(</span><span class="n">target_vel</span> <span class="o">/</span> <span class="p">(</span><span class="n">framerate</span> <span class="o">*</span> <span class="n">duration</span><span class="p">))</span> <span class="o">*</span> <span class="n">frame</span>
+    <span class="n">newgrid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[:]</span>
+    <span class="k">for</span> <span class="n">line_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">line_index</span><span class="p">]</span>
+        <span class="n">start_point</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">end_point</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">newline</span> <span class="o">=</span> <span class="p">[</span> <span class="n">lorentz</span><span class="p">(</span><span class="n">start_point</span><span class="p">,</span> <span class="n">current_vel</span><span class="p">),</span> <span class="n">lorentz</span><span class="p">(</span><span class="n">end_point</span><span class="p">,</span> <span class="n">current_vel</span><span class="p">)</span> <span class="p">]</span>
+        <span class="n">newgrid</span><span class="p">[</span><span class="n">line_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">newline</span>
+
+
+    <span class="k">for</span> <span class="n">point</span><span class="p">,</span> <span class="n">quiver</span> <span class="ow">in</span> <span class="n">quivers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">quiver</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="o">*</span><span class="n">lorentz</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">current_vel</span><span class="p">))</span>
+
+    <span class="n">label</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;$v = </span><span class="si">{}</span><span class="s2">$ </span><span class="se">\n</span><span class="s2"> $f = </span><span class="si">{}</span><span class="s2">$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_vel</span><span class="p">,</span> <span class="n">frame</span><span class="p">))</span>
+    <span class="n">linecol</span><span class="o">.</span><span class="n">set_segments</span><span class="p">(</span><span class="n">newgrid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">linecol</span><span class="p">,</span><span class="n">label</span><span class="p">,)</span>
+</code></pre></div>
+
+<p>The current velocity is just proportional to how far into the animation you are. For each line, we apply the <code>lorentz</code> function to both start and end points to find the new line, and we do the same for each quiver object. Lastly, we update the label displaying the current velocity and update the <code>LineCollection</code> object. Matplotlib requires that the <code>update</code> function return the objects we have updated, but for some reason, we don't need to return the quivers but they still update. Lastly, we create a figure and axis, and add stuff to the plot.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Adding objects to plot</span>
+<span class="n">lc</span> <span class="o">=</span> <span class="n">LineCollection</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">textobj</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$v = </span><span class="si">{}</span><span class="s2">$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_vel</span><span class="p">),</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">fprops</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">right</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span>
+
+<span class="n">quivers</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">vectorlist</span><span class="p">:</span>
+    <span class="n">quivers</span><span class="p">[</span><span class="n">vector</span><span class="p">]</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vector</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">autoscale</span><span class="p">()</span>
+</code></pre></div>
+
+<p>And lastly, we just create the animation object and save it to the output file</p>
+<div class="highlight"><pre><span></span><code><span class="n">ani</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">framerate</span><span class="o">*</span><span class="n">duration</span><span class="p">),</span> <span class="n">fargs</span><span class="o">=</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">lc</span><span class="p">,</span> <span class="n">quivers</span><span class="p">,</span> <span class="n">textobj</span><span class="p">,),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">1000</span><span class="o">/</span><span class="n">framerate</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+
+<p>And we get our output! The whole code can be found <a href="https://gitlab.com/cocoa1231/visualizations/-/blob/master/LorentzTransformations/lorentz.py">here</a>. And notice that we could have defined any other matrix in the <code>lorentz</code> function parameterized by a single number, and we can animate it! Try doing some of it!.</p>
+<p><img alt="Lorentz Final Animation" src="./visualizations/images/lorentz.gif"></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+		<span class="post-tags">
+			Tags:
+			<ul>
+					<li><a href="./tag/python.html">python</a></li>
+					<li><a href="./tag/math.html">math</a></li>
+					<li><a href="./tag/physics.html">physics</a></li>
+					<li><a href="./tag/visualization.html">visualization</a></li>
+					<li><a href="./tag/matplotlib.html">matplotlib</a></li>
+			</ul>
+		</span>
+
+</div>
+		</div>
+	</body>
 </html>
